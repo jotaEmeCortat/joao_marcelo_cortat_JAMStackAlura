@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { propToStyle } from '../../../Theme/utils/propToStyle';
 
 const buttonGhost = css`
 background: transparent;
@@ -20,7 +21,7 @@ export const Button = styled.button`
   margin: 10px;
   opacity: 1;
   padding: 8px 32px;
-  
+  ${propToStyle('marginTop')}
     
   ${({ ghost }) => {
     if (ghost) {

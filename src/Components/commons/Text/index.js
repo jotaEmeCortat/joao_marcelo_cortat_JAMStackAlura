@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-/* import { propToStyle } from '../../../Theme/utils/propToStyle'; */
 import { breakpointsMedia } from '../../../Theme/utils/breakpointsMedia';
+import { propToStyle } from '../../../Theme/utils/propToStyle';
 
 export const TextTypes = {
   title: css`
@@ -69,8 +69,8 @@ export const TextTypes = {
 const TextBase = styled.span`
   ${({ type }) => TextTypes[type]};
   color: ${({ theme }) => theme.colors.text};
-  /* ${propToStyle('textAlign')};
-  ${propToStyle('marginTop')} */
+  ${propToStyle('textAlign')};
+  ${propToStyle('marginTop')}
 `;
 
 export default function Text({
