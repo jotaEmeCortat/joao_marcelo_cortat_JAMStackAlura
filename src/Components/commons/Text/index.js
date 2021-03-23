@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { breakpointsMedia } from '../../../Theme/utils/breakpointsMedia';
-import { propToStyle } from '../../../Theme/utils/propToStyle';
+import { breakpointsMedia } from '../../../utils/breakpointsMedia';
+import { propToStyle } from '../../../utils/propToStyle';
 
 export const TextTypes = {
   title: css`

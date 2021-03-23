@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { propToStyle } from '../../../Theme/utils/propToStyle';
+import { propToStyle } from '../../../utils/propToStyle';
 
 const buttonGhost = css`
 background: transparent;
