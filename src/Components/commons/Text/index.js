@@ -71,6 +71,7 @@ const TextBase = styled.span`
   color: ${({ theme }) => theme.colors.text};
   ${propToStyle('textAlign')};
   ${propToStyle('marginTop')}
+  ${propToStyle('marginBottom')}
 `;
 
 export default function Text({
@@ -80,7 +81,6 @@ export default function Text({
     <TextBase
       as={tag}
       type={type}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
       {children}

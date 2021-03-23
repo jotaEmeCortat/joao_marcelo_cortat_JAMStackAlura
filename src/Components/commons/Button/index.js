@@ -17,12 +17,12 @@ export const Button = styled.button`
   border: none;
   border-radius:7px;
   cursor: pointer;
-  display: block;
-  margin: 10px;
   opacity: 1;
   padding: 8px 32px;
   ${propToStyle('marginTop')}
-    
+  ${propToStyle('margin')}
+  ${propToStyle('display')}
+
   ${({ ghost }) => {
     if (ghost) {
       return buttonGhost;
