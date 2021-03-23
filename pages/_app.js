@@ -1,16 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { theme } from '../src/Theme';
+import { GlobalStyle } from '../src/Theme/GlobalStyle';
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
-
+// eslint-disable-next-line react/prop-types
 export default function App({ Component, pageProps }) {
   return (
     <>
@@ -24,5 +18,5 @@ export default function App({ Component, pageProps }) {
 
 App.propTypes = {
   Component: PropTypes.func.isRequired,
-  pageProps: PropTypes.elementType.isRequired,
+  /* pageProps: PropTypes.object.isRequired, */
 };
