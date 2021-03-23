@@ -1,4 +1,5 @@
 import React from 'react';
+import Text from '../commons/Text';
 import { links } from './links';
 import { MenuWrapper } from './MenuWrapper';
 
@@ -8,7 +9,7 @@ export default function Menu() {
       <MenuWrapper.Link>
         {links.map((link) => (
           <li key={link.url}>
-            <a as="a" type="link" href={link.url}>{link.text}</a>
+            <Text as="a" type="link" href={link.url}>{link.text}</Text>
           </li>
         ))}
       </MenuWrapper.Link>

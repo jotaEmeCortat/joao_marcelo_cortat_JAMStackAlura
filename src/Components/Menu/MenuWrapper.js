@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-/* import { breakpointsMedia } from '../../../Theme/utils/breakpointsMedia'; */
+import { breakpointsMedia } from '../../Theme/utils/breakpointsMedia';
 
 export const MenuWrapper = styled.nav`
   display: flex;
@@ -8,7 +8,7 @@ export const MenuWrapper = styled.nav`
   flex-wrap: wrap;
   margin-top: 48px;
 
-  /* ${breakpointsMedia({
+  ${breakpointsMedia({
     md: css`
       margin-top: 64px;
       padding: 0 64px;
@@ -22,7 +22,7 @@ export const MenuWrapper = styled.nav`
     `,
     xl: css`
     `,
-  })} */
+  })}
 `;
 
 MenuWrapper.Link = styled.div`
@@ -33,13 +33,13 @@ MenuWrapper.Link = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around; 
-  /* ${breakpointsMedia({
+  ${breakpointsMedia({
     md: css`
       max-width: 332px;
       justify-content: space-around;
      
     `,
-  })} */
+  })}
   a {
     text-align: center;
     display: block;
