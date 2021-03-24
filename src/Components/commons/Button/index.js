@@ -22,6 +22,10 @@ export const Button = styled.button`
   padding: 16px 32px;
   ${TextTypes.link}
 
+  :hover{
+    background-color: #ffc31f;
+  }
+
   ${propToStyle('marginTop')}
   ${propToStyle('margin')}
   ${propToStyle('display')}

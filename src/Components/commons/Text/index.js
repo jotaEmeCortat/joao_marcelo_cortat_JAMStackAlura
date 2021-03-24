@@ -69,6 +69,7 @@ export const TextTypes = {
 const TextBase = styled.span`
   ${({ type }) => TextTypes[type]};
   color: ${({ theme }) => theme.colors.text};
+
   ${propToStyle('textAlign')};
   ${propToStyle('marginTop')}
   ${propToStyle('marginBottom')}

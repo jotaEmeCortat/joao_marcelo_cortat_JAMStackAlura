@@ -48,11 +48,7 @@ MenuWrapper.Link = styled.div`
     
     &:hover,
     &:focus {
-      color: #070C0E;
-      
+      color: #ffc31f;
     }
-    &::last-child{
-padding-right:0px;
-  }
   }
 `;
