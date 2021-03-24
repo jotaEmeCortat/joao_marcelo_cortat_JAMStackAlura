@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { propToStyle } from '../../../utils/propToStyle';
+import { TextTypes } from '../Text';
 
 const buttonGhost = css`
 background: transparent;
@@ -18,7 +19,9 @@ export const Button = styled.button`
   border-radius:7px;
   cursor: pointer;
   opacity: 1;
-  padding: 8px 32px;
+  padding: 16px 32px;
+  ${TextTypes.link}
+
   ${propToStyle('marginTop')}
   ${propToStyle('margin')}
   ${propToStyle('display')}

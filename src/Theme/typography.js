@@ -31,8 +31,8 @@ export const typography = {
   },
   // [link]
   link: {
-    fontSize: '18px',
-    fontWeight: '600',
+    fontSize: '20px',
+    fontWeight: '700',
     lineHeight: '1.25',
   },
 };

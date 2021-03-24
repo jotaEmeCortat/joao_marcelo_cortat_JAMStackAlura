@@ -1,19 +1,4 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { breakpointsMedia } from '../../src/utils/breakpointsMedia';
-
-/* const EyeWrapper = styled.div`
-position:relative;
-${breakpointsMedia({
-
-    xs: css`
-    max-width:25%;
-      `,
-    lg: css`
-    max-width:100%;
-      `,
-  })}
-`; */
 
 export default function Eye() {
   return (

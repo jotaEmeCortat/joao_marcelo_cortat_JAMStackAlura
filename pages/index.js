@@ -29,7 +29,7 @@ export default function Home() {
             value={{ xs: 12, lg: 5 }}
             offset={{ xs: 0, lg: 1 }}
             display="flex"
-            alignItems="center"
+            alignItems="flex-start"
             justifyContent="center"
             flexDirection="column"
             order={{ xs: 2, lg: 1 }}
