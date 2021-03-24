@@ -1,4 +1,6 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 import { propToStyle } from '../../../utils/propToStyle';
 import { TextTypes } from '../Text';
 
@@ -11,10 +13,10 @@ color:  #FED231;
 const buttonDefault = css`
   background: #FED231;
   border: none;
-  color: #111111;
+  color: ${({ theme }) => theme.colors.contrastText};
 `;
 
-export const Button = styled.button`
+const ButtonWrapper = styled.button`
   border: none;
   border-radius:7px;
   cursor: pointer;
@@ -46,3 +48,15 @@ export const Button = styled.button`
     width: 100%;
   `};
 `;
+
+export default function Button({ children, ...props }) {
+  return (
+    <ButtonWrapper {...props}>
+      {children}
+    </ButtonWrapper>
+  );
+}
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+};

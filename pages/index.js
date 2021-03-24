@@ -3,11 +3,13 @@ import Menu from '../src/Components/Menu';
 import { Grid } from '../src/layout/Grid';
 import { Box } from '../src/layout/Box';
 import Text from '../src/Components/commons/Text';
-import { Button } from '../src/Components/commons/Button';
+import Button from '../src/Components/commons/Button';
 import Footer from '../src/Components/Footer';
 import Eye from '../public/img/eye';
+import Modal from '../src/Components/commons/Modal';
 
 export default function Home() {
+  const [modal, setModal] = React.useState(false);
   return (
     <Box
       flex="1"
@@ -16,6 +18,24 @@ export default function Home() {
       flexDirection="column"
       justifyContent="space-between"
     >
+      <Modal
+        modal={modal}
+        setModal={setModal}
+        modalOpen={modal}
+      >
+        {(propsModal) => (
+          <Box
+            background="white"
+            {...propsModal}
+          >
+            <div>
+              Modal
+            </div>
+
+          </Box>
+        )}
+      </Modal>
+
       <Menu />
 
       <Grid.Container
@@ -65,6 +85,7 @@ export default function Home() {
                 lg: 'initial',
               }}
               display="block"
+              onClick={() => setModal(true)}
             >
               Let's talk
             </Button>
