@@ -67,8 +67,8 @@ const Ball = styled.div`
 export default function Eye22() {
   const position = useMousePosition();
   const size = useWindowSize();
-  const x = `${position.x * 100 / size.width}%`;
-  const y = `${position.y * 100 / size.height}%`;
+  const x = `${(position.x * 100) / size.width}%`;
+  const y = `${(position.y * 100) / size.height}%`;
 
   return (
     <Eyes>
