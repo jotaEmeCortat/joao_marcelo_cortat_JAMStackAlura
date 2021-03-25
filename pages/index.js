@@ -5,8 +5,9 @@ import { Box } from '../src/layout/Box';
 import Text from '../src/Components/commons/Text';
 import Button from '../src/Components/commons/Button';
 import Footer from '../src/Components/Footer';
-import Eye from '../public/img/eye';
+/* import Eye from '../public/img/eye'; */
 import Modal from '../src/Components/commons/Modal';
+import Eye22 from '../src/Components/Eye';
 
 export default function Home() {
   const [modal, setModal] = React.useState(false);
@@ -29,9 +30,8 @@ export default function Home() {
             {...propsModal}
           >
             <div>
-              Modal
+              Modal MOdal MOdal
             </div>
-
           </Box>
         )}
       </Modal>
@@ -98,7 +98,8 @@ export default function Home() {
             value={{ xs: 12, lg: 6 }}
             order={{ xs: 1, lg: 2 }}
           >
-            <Eye />
+            {/* <Eye /> */}
+            <Eye22 />
 
           </Grid.Col>
         </Grid.Row>

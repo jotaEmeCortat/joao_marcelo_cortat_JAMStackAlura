@@ -1,13 +1,14 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 import Button from '../Button';
 
 const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background: rgba(51, 170, 51, .7);
+  background: rgba(0,0,0,0.1);;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,6 +16,8 @@ const ModalWrapper = styled.div`
   bottom: 0;
   margin: auto;
   overflow: scroll;
+  transition: .3s;
+  z-index:100;
 
   ${({ modalOpen }) => {
     if (modalOpen) {
@@ -28,6 +31,12 @@ const ModalWrapper = styled.div`
       pointer-events: none;
     `;
   }}
+`;
+
+const LockScroll = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
 `;
 
 export default function Modal({
@@ -44,10 +53,33 @@ export default function Modal({
           }
         }}
       >
-        {children({
-          'data-modal-safe-area': 'true',
-        })}
-        <Button onClick={() => setModal(false)}>Fechar</Button>
+
+        {modalOpen && <LockScroll />}
+
+        <motion.div
+          variants={{
+            open: {
+              x: 0,
+            },
+            closed: {
+              x: '100%',
+            },
+          }}
+          animate={modalOpen ? 'open' : 'closed'}
+          transition={{
+            duration: 0.5,
+          }}
+          style={{
+            display: 'flex',
+            flex: 1,
+          }}
+        >
+          {children({
+            'data-modal-safe-area': 'true',
+          })}
+          {/* <Button onClick={() => setModal(false)}>Fechar</Button> */}
+        </motion.div>
+
       </ModalWrapper>
     );
   } return null;
