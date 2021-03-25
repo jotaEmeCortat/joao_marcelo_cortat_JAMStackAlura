@@ -47,6 +47,7 @@ export const Grid = {
     ${propToStyle('justifyContent')}
     ${propToStyle('flexDirection')}
     ${propToStyle('order')}
+    ${propToStyle('marginTop')}
     
     ${({ value }) => {
     if (typeof value === 'number') {

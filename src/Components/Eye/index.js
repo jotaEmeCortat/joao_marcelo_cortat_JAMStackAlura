@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { breakpointsMedia } from '../../utils/breakpointsMedia';
 import useWindowSize from '../../utils/useWindowSize';
 
 const useMousePosition = () => {
-  const [position, setPosition] = useState({ x: 220, y: 400 });
+  const [position, setPosition] = useState({ x: 20, y: 120 });
 
   useEffect(() => {
     const setFromEvent = (event) => setPosition({ x: event.clientX, y: event.clientY });
@@ -18,69 +18,64 @@ const useMousePosition = () => {
   return position;
 };
 
-const Eyes = styled.div`
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  text-align:center;
-`;
-
-const Eye = styled.div`
-  width: 240px;
-  height: 120px;
+const EyeWrapper = styled.div`
+  width: 180px;
+  height: 100px;
   background: #fafafa;
-  display: inline-block;
-  margin: 40px;
   border-radius: 50%;
   position: relative;
   overflow: hidden;
   ${breakpointsMedia({
     md: css`
-      `,
-    lg: css`
       width: 290px;
       height: 170px;
       `,
+    lg: css`
+      
+      `,
   })}
+`;
+
+const move = keyframes`
+  0% { transform: translate(0px, 0px) }
+  100% { transform: translate(110px, 0px) }
+
 `;
 
 const Ball = styled.div`
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   background: #111111;
   position: absolute;
-  /* left: 41%;
-  top: 31%; */
   transform: translate(-50%,-50%);
+  animation: ${move} 4s infinite alternate;
   border-radius: 50%;
   ${breakpointsMedia({
     md: css`
+      width: 100px;
+      height: 100px;
       `,
     lg: css`
-      width: 100px;
-     height: 100px;
+      animation: none;
       `,
   })}
 `;
 
-export default function Eye22() {
+export default function Eye() {
   const position = useMousePosition();
   const size = useWindowSize();
   const x = `${(position.x * 100) / size.width}%`;
   const y = `${(position.y * 100) / size.height}%`;
 
   return (
-    <Eyes>
-      <Eye>
-        <Ball
-          style={{
-            left: x,
-            top: y,
-            transform: `translate(-${x},-${y})`,
-          }}
-        />
-      </Eye>
-    </Eyes>
+    <EyeWrapper>
+      <Ball
+        style={{
+          left: x,
+          top: y,
+          transform: `translate(-${x},-${y})`,
+        }}
+      />
+    </EyeWrapper>
   );
 }

@@ -7,7 +7,7 @@ import Button from '../src/Components/commons/Button';
 import Footer from '../src/Components/Footer';
 /* import Eye from '../public/img/eye'; */
 import Modal from '../src/Components/commons/Modal';
-import Eye22 from '../src/Components/Eye';
+import Eye from '../src/Components/Eye';
 
 export default function Home() {
   const [modal, setModal] = React.useState(false);
@@ -62,7 +62,10 @@ export default function Home() {
                 xs: 'center',
                 lg: 'left',
               }}
-              marginTop="16px"
+              marginTop={{
+                xs: '16px',
+                md: '32px',
+              }}
             >
               always seeking knowledge
             </Text>
@@ -73,8 +76,14 @@ export default function Home() {
                 xs: 'center',
                 lg: 'left',
               }}
-              marginTop="16px"
-              marginBottom="32px"
+              marginTop={{
+                xs: '16px',
+                md: '32px',
+              }}
+              marginBottom={{
+                xs: '32px',
+                md: '48px',
+              }}
             >
               Hello, my name is João. I’m a developer, designer and illustrator. Always looking for new technologies and languages, even if they are on other universes...
             </Text>
@@ -94,12 +103,17 @@ export default function Home() {
           <Grid.Col
             display="flex"
             alignItems="center"
+            justify-content="center"
             flexDirection="column"
             value={{ xs: 12, lg: 6 }}
             order={{ xs: 1, lg: 2 }}
+            marginTop={{
+              xs: '16px',
+              lg: '64px',
+            }}
           >
             {/* <Eye /> */}
-            <Eye22 />
+            <Eye />
 
           </Grid.Col>
         </Grid.Row>
