@@ -8,6 +8,7 @@ import Footer from '../src/Components/Footer';
 /* import Eye from '../public/img/eye'; */
 import Modal from '../src/Components/commons/Modal';
 import Eye from '../src/Components/Eye';
+import Form from '../src/Components/Form';
 
 export default function Home() {
   const [modal, setModal] = React.useState(false);
@@ -25,14 +26,17 @@ export default function Home() {
         modalOpen={modal}
       >
         {(propsModal) => (
-          <Box
+          /*  <Box
             background="white"
             {...propsModal}
           >
             <div>
               Modal MOdal MOdal
             </div>
-          </Box>
+          </Box> */
+          <>
+            <Form propsModal={propsModal} />
+          </>
         )}
       </Modal>
 
@@ -49,7 +53,7 @@ export default function Home() {
             value={{ xs: 12, lg: 5 }}
             offset={{ xs: 0, lg: 1 }}
             display="flex"
-            alignItems="flex-start"
+            alignItems="center"
             justifyContent="center"
             flexDirection="column"
             order={{ xs: 2, lg: 1 }}
@@ -89,10 +93,6 @@ export default function Home() {
             </Text>
 
             <Button
-              margin={{
-                xs: 'auto',
-                lg: 'initial',
-              }}
               display="block"
               onClick={() => setModal(true)}
             >

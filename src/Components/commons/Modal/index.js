@@ -1,14 +1,13 @@
 import React from 'react';
 import styled, { createGlobalStyle, css } from 'styled-components';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
-import Button from '../Button';
+/* import Button from '../Button'; */
 
 const ModalWrapper = styled.div`
+  background-color: green /* ${({ theme }) => theme.colors.backgroundSecondary} */;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background: rgba(0,0,0,0.1);;
   position: fixed;
   top: 0;
   left: 0;
@@ -24,11 +23,13 @@ const ModalWrapper = styled.div`
       return css`
         opacity: 1;
         pointer-events: all;
+        clipPath: circle(200 * 2 + 200}px at 40px 40px);
       `;
     }
     return css`
       opacity: 0;
       pointer-events: none;
+      clipPath: circle(30px at 40px 40px);
     `;
   }}
 `;
@@ -56,7 +57,7 @@ export default function Modal({
 
         {modalOpen && <LockScroll />}
 
-        <motion.div
+        <div
           variants={{
             open: {
               x: 0,
@@ -77,8 +78,7 @@ export default function Modal({
           {children({
             'data-modal-safe-area': 'true',
           })}
-          {/* <Button onClick={() => setModal(false)}>Fechar</Button> */}
-        </motion.div>
+        </div>
 
       </ModalWrapper>
     );
