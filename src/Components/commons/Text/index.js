@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import get from 'lodash/get';
 import { breakpointsMedia } from '../../../utils/breakpointsMedia';
 import { propToStyle } from '../../../utils/propToStyle';
 
@@ -68,20 +69,20 @@ export const TextTypes = {
 
 const TextBase = styled.span`
   ${({ type }) => TextTypes[type]};
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme, color }) => get(theme, `colors.text.${color}`)};
 
   ${propToStyle('textAlign')};
-  ${propToStyle('marginTop')}
-  ${propToStyle('marginBottom')}
+  ${propToStyle('margin')}
 `;
 
 export default function Text({
-  tag, type, children, ...props
+  tag, type, color, children, ...props
 }) {
   return (
     <TextBase
       as={tag}
       type={type}
+      color={color}
       {...props}
     >
       {children}
@@ -93,10 +94,12 @@ Text.propTypes = {
   tag: PropTypes.string,
   type: PropTypes.string,
   children: PropTypes.node,
+  color: PropTypes.node,
 };
 
 Text.defaultProps = {
   tag: 'span',
   type: 'paragraphy',
+  color: 'primary',
   children: null,
 };

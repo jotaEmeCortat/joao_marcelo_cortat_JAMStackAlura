@@ -8,4 +8,5 @@ export const Box = styled.div`
   ${propToStyle('justifyContent')}
   ${propToStyle('flexWrap')}
   ${propToStyle('background')}
+  ${propToStyle('padding')}
 `;

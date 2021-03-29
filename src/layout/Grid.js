@@ -35,7 +35,12 @@ export const Grid = {
     flex-wrap: wrap;
     margin-right: -16px;
     margin-left: -16px;
+<<<<<<< Updated upstream
+=======
+    ${propToStyle('flex')}
+>>>>>>> Stashed changes
   `,
+
   Col: styled.div`
     padding-right: 16px;
     padding-left: 16px;
@@ -47,7 +52,11 @@ export const Grid = {
     ${propToStyle('justifyContent')}
     ${propToStyle('flexDirection')}
     ${propToStyle('order')}
-    ${propToStyle('marginTop')}
+    ${propToStyle('margin')}
+    ${propToStyle('flex')}
+    ${propToStyle('padding')}
+    ${propToStyle('height')}
+    
     
     ${({ value }) => {
     if (typeof value === 'number') {
