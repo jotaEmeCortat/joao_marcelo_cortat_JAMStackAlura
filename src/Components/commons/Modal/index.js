@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import styled, { createGlobalStyle, css } from 'styled-components';
+import styled, { createGlobalStyle, css, keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import Button from '../Button';
@@ -8,7 +8,7 @@ import { breakpointsMedia } from '../../../utils/breakpointsMedia';
 const ModalWrapper = styled.div`
   display: flex;
   flex:1;
-  align-items: flex-start;
+  align-items: stretch;
   flex-direction:column;
   background: rgba(0,0,0,0.9);
   position: fixed;
@@ -20,6 +20,28 @@ const ModalWrapper = styled.div`
   overflow: hidden;
   z-index: 100;
 `;
+const bondJamesBond = keyframes`
+ 0% {
+    transform:translateX(1000px);
+  }
+  80% {
+    transform:translateX(0px);
+    border-radius:75px;
+    height:75px;
+    width:75px;
+  }
+  90% {
+    border-radius:3px;
+    height:182px;
+    width:247px;
+  }
+  100% {
+    border-radius:3px;
+    height:162px;
+    width:227px;
+  }
+
+ `;
 
 const ModalContent = styled(motion.div)`
   background: ${({ theme }) => theme.colors.background.secondary};
@@ -33,6 +55,8 @@ const ModalContent = styled(motion.div)`
        max-width:50%;
       `,
   })}
+
+/* animation: ${bondJamesBond} 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000); */
 `;
 
 const LockScroll = createGlobalStyle`
@@ -60,7 +84,20 @@ export default function Modal({ modal, setModal, children }) {
 
         {modal && <LockScroll />}
 
-        <ModalContent>
+        <ModalContent
+          /* variants={{
+            open: {
+              x: '0%',
+            },
+            closed: {
+              x: '-100%',
+            },
+          }}
+          animate={!modal ? 'open' : 'closed'}
+          transition={{
+            duration: 0.5,
+          }} */
+        >
 
           <Button
             variant="back"
