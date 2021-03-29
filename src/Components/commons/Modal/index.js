@@ -17,7 +17,7 @@ const ModalWrapper = styled.div`
   right: 0;
   bottom: 0;
   margin: auto;
-  overflow: scroll;
+  overflow: hidden;
   z-index: 100;
 `;
 
@@ -27,7 +27,7 @@ const ModalContent = styled(motion.div)`
   flex:1;
   flex-direction:column;
   padding: 48px;
-
+ 
   ${breakpointsMedia({
     lg: css`
        max-width:50%;
@@ -55,19 +55,13 @@ export default function Modal({ modal, setModal, children }) {
       <ModalWrapper
         onClick={closeModal}
         ref={modalRef}
+
       >
+
         {modal && <LockScroll />}
-        <ModalContent
-          variants={{
-            open: {
-              x: 0,
-            },
-            closed: {
-              x: '-100%',
-            },
-          }}
-          animate={modal ? 'open' : 'closed'}
-        >
+
+        <ModalContent>
+
           <Button
             variant="back"
             onClick={() => setModal()}
@@ -78,10 +72,8 @@ export default function Modal({ modal, setModal, children }) {
           </Button>
 
           {children}
+
         </ModalContent>
-        {/*    </Box>
-          </Grid.Col>
-        </Grid.Row> */}
       </ModalWrapper>
     );
   } return (
