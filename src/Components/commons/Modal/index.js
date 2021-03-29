@@ -84,20 +84,7 @@ export default function Modal({ modal, setModal, children }) {
 
         {modal && <LockScroll />}
 
-        <ModalContent
-          /* variants={{
-            open: {
-              x: '0%',
-            },
-            closed: {
-              x: '-100%',
-            },
-          }}
-          animate={!modal ? 'open' : 'closed'}
-          transition={{
-            duration: 0.5,
-          }} */
-        >
+        <ModalContent>
 
           <Button
             variant="back"
