@@ -5,13 +5,13 @@ import { Box } from '../src/layout/Box';
 import Text from '../src/Components/commons/Text';
 import Button from '../src/Components/commons/Button';
 import Footer from '../src/Components/Footer';
-/* import Eye from '../public/img/eye'; */
-import Modal from '../src/Components/commons/Modal';
 import Eye from '../src/Components/Eye';
-import Form from '../src/Components/Form';
+import Modal from '../src/Components/commons/Modal';
+import FormContact from '../src/Components/FormContact';
 
 export default function Home() {
   const [modal, setModal] = React.useState(false);
+
   return (
     <Box
       flex="1"
@@ -20,33 +20,18 @@ export default function Home() {
       flexDirection="column"
       justifyContent="space-between"
     >
-      <Modal
-        modal={modal}
-        setModal={setModal}
-        modalOpen={modal}
-      >
-        {(propsModal) => (
-          /*  <Box
-            background="white"
-            {...propsModal}
-          >
-            <div>
-              Modal MOdal MOdal
-            </div>
-          </Box> */
-          <>
-            <Form propsModal={propsModal} />
-          </>
-        )}
-      </Modal>
 
       <Menu />
 
+      <Modal
+        modal={modal}
+        setModal={setModal}
+      >
+        <FormContact />
+      </Modal>
+
       <Grid.Container
-        marginTop={{
-          xs: '32px',
-          /* lg: '64px', */
-        }}
+        margin="32px 0px 0px 0px"
       >
         <Grid.Row>
           <Grid.Col
@@ -62,13 +47,14 @@ export default function Home() {
             <Text
               type="title"
               tag="h1"
+              color="primary"
               textAlign={{
                 xs: 'center',
                 lg: 'left',
               }}
-              marginTop={{
-                xs: '16px',
-                md: '32px',
+              margin={{
+                xs: '16px 0px 0px 0px',
+                md: '32px 0px 0px 0px',
               }}
             >
               always seeking knowledge
@@ -76,27 +62,29 @@ export default function Home() {
             <Text
               type="paragraphy"
               tag="p"
+              color="primary"
               textAlign={{
                 xs: 'center',
                 lg: 'left',
               }}
-              marginTop={{
-                xs: '16px',
-                md: '32px',
-              }}
-              marginBottom={{
-                xs: '32px',
-                md: '48px',
+              margin={{
+                xs: '16px 0px 0px 0px',
+                md: '32px 0px 0px 0px',
               }}
             >
               Hello, my name is João. I’m a developer, designer and illustrator. Always looking for new technologies and languages, even if they are on other universes...
             </Text>
 
             <Button
+              variant="default"
               display="block"
-              onClick={() => setModal(true)}
+              margin={{
+                xs: '32px 0px 0px 0px',
+                lg: '32px auto 0px 0px',
+              }}
+              onClick={() => setModal(!modal)}
             >
-              Let's talk
+              let's talk
             </Button>
 
           </Grid.Col>
@@ -107,12 +95,11 @@ export default function Home() {
             flexDirection="column"
             value={{ xs: 12, lg: 6 }}
             order={{ xs: 1, lg: 2 }}
-            marginTop={{
-              xs: '16px',
-              lg: '64px',
+            margin={{
+              xs: '16px 0px 0px 0px',
+              md: '64px 0px 0px 0px',
             }}
           >
-            {/* <Eye /> */}
             <Eye />
 
           </Grid.Col>

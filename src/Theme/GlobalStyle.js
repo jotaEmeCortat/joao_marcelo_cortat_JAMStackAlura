@@ -7,13 +7,17 @@ export const GlobalStyle = createGlobalStyle`
   }
   ${normalize}
 
-  h1,p {
+  h1,h2,p {
     margin: 0;
+  }
+  
+  button{
+    border:none
   }
 
   html,
   body {
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.background.primary};
     font-family: ${({ theme }) => theme.fontFamily};
     margin: 0;
     padding: 0;

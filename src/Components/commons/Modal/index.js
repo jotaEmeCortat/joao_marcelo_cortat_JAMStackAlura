@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled, { createGlobalStyle, css } from 'styled-components';
 import PropTypes from 'prop-types';
-/* import Button from '../Button'; */
+import { motion } from 'framer-motion';
+import Button from '../Button';
+import { breakpointsMedia } from '../../../utils/breakpointsMedia';
 
 const ModalWrapper = styled.div`
-  background-color: green /* ${({ theme }) => theme.colors.backgroundSecondary} */;
+
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  flex:1;
+  align-items: flex-start;
+  flex-direction:column;
+  background: rgba(0,0,0,0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -15,23 +19,21 @@ const ModalWrapper = styled.div`
   bottom: 0;
   margin: auto;
   overflow: scroll;
-  transition: .3s;
-  z-index:100;
+  z-index: 100;
+`;
 
-  ${({ modalOpen }) => {
-    if (modalOpen) {
-      return css`
-        opacity: 1;
-        pointer-events: all;
-        clipPath: circle(200 * 2 + 200}px at 40px 40px);
-      `;
-    }
-    return css`
-      opacity: 0;
-      pointer-events: none;
-      clipPath: circle(30px at 40px 40px);
-    `;
-  }}
+const ModalContent = styled(motion.div)`
+  background: ${({ theme }) => theme.colors.background.secondary};
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  padding: 48px;
+
+  ${breakpointsMedia({
+    lg: css`
+       max-width:50%;
+      `,
+  })}
 `;
 
 const LockScroll = createGlobalStyle`
@@ -40,54 +42,46 @@ const LockScroll = createGlobalStyle`
   }
 `;
 
-export default function Modal({
-  modalOpen, modal, setModal, children,
-}) {
+export default function Modal({ modal, setModal, children }) {
+  const modalRef = useRef();
+  const closeModal = ({ target }) => {
+    if (modalRef.current === target) {
+      setModal(false);
+    }
+  };
+
   if (modal) {
     return (
+
       <ModalWrapper
-        modalOpen={modalOpen}
-        onClick={(event) => {
-          const isSafeArea = event.target.closest('[data-modal-safe-area="true"]');
-          if (!isSafeArea) {
-            setModal(false);
-          }
-        }}
+        onClick={closeModal}
+        ref={modalRef}
       >
+        {modal && <LockScroll />}
+        <ModalContent>
+          <Button
+            variant="back"
+            onClick={() => setModal()}
+            margin="0px auto 16px 0px"
+            padding="8px 16px"
+          >
+            Back
+          </Button>
 
-        {modalOpen && <LockScroll />}
-
-        <div
-          variants={{
-            open: {
-              x: 0,
-            },
-            closed: {
-              x: '100%',
-            },
-          }}
-          animate={modalOpen ? 'open' : 'closed'}
-          transition={{
-            duration: 0.5,
-          }}
-          style={{
-            display: 'flex',
-            flex: 1,
-          }}
-        >
-          {children({
-            'data-modal-safe-area': 'true',
-          })}
-        </div>
-
+          {children}
+        </ModalContent>
+        {/*    </Box>
+          </Grid.Col>
+        </Grid.Row> */}
       </ModalWrapper>
     );
-  } return null;
+  } return (
+    null
+  );
 }
 
 Modal.propTypes = {
   modal: PropTypes.bool.isRequired,
-  modalOpen: PropTypes.bool.isRequired,
   setModal: PropTypes.func.isRequired,
-  children: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
 };
