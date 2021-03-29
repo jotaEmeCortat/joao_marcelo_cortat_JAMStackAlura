@@ -6,7 +6,6 @@ import Button from '../Button';
 import { breakpointsMedia } from '../../../utils/breakpointsMedia';
 
 const ModalWrapper = styled.div`
-
   display: flex;
   flex:1;
   align-items: flex-start;
@@ -58,7 +57,17 @@ export default function Modal({ modal, setModal, children }) {
         ref={modalRef}
       >
         {modal && <LockScroll />}
-        <ModalContent>
+        <ModalContent
+          variants={{
+            open: {
+              x: 0,
+            },
+            closed: {
+              x: '-100%',
+            },
+          }}
+          animate={modal ? 'open' : 'closed'}
+        >
           <Button
             variant="back"
             onClick={() => setModal()}
