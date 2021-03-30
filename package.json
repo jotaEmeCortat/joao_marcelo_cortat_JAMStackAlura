@@ -10,6 +10,8 @@
     "commit": "cz"
   },
   "dependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
     "framer-motion": "^4.0.3",
     "install": "^0.13.0",
     "lodash": "^4.17.21",
@@ -39,7 +41,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint"
+      "pre-push": "yarn lint",
+      "commit-msg": "commitlilnt -E HUSKY_GIT_PARAMS"
     }
   },
   "license": "MIT",
