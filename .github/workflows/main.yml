@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   pull_request:
-    types: [ open, syncronize ]
+    types: [ opened,synchronize ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,16 +19,16 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - users: actions/checkout@v2
-      - users: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: '14.15.5' 
-    
+          node-version: '14.15.5'
+
       # Runs a single command using the runners shell
       - name: Node Version
         run: node -v
-      - name: Install Dependencies
-        run: yarn intall
+      - name: Install dependencies
+        run: yarn install
       - name: Run Linter
         run: yarn lint
 
