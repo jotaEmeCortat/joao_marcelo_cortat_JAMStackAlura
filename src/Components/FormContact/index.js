@@ -88,7 +88,7 @@ export default function FormContact() {
       >
         Lorem Ipsum is simply dummy
         text of the printing
-        and typesetting industry
+        and typesetting industryhgyt
       </Text>
 
       <div>
