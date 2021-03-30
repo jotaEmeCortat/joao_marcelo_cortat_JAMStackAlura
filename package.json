@@ -6,7 +6,7 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
     "framer-motion": "^4.0.3",
