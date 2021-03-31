@@ -60,7 +60,7 @@ export const TextTypes = {
   })}
   `,
 
-  link: css`
+  button: css`
   font-weight: ${({ theme }) => theme.typography.link.fontWeight};
   line-height: ${({ theme }) => theme.typography.link.lineHeight};
   font-size: ${({ theme }) => theme.typography.link.fontSize};
