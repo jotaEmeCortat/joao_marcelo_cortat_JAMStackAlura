@@ -43,7 +43,7 @@ const ButtonWrapper = styled.button`
   opacity: 1;
   padding: 16px 32px;
   margin: auto;
-  ${TextTypes.link}
+  ${TextTypes.button}
   ${breakpointsMedia({
     md: css`
       `,
