@@ -36,6 +36,14 @@ export const Grid = {
     margin-right: -16px;
     margin-left: -16px;
     ${propToStyle('flex')}
+//add para pagina faq
+    ${propToStyle('marginTop')}
+    ${propToStyle('marginLeft')}
+    ${propToStyle('marginRight')}
+    ${propToStyle('justifyContent')}
+    ${propToStyle('marginBottom')}
+    ${propToStyle('flexDirection')}
+// fim add para pagina faq
   `,
 
   Col: styled.div`
