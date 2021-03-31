@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   ${normalize}
 
-  h1,h2,p {
+  h1,h2,h3,p {
     margin: 0;
   }
   
