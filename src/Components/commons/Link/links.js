@@ -10,7 +10,6 @@ export const links = [
   {
     text: 'gitHub',
     url: 'https://github.com/jotaEmeCortat',
-
   },
   {
     text: 'linkedin',

@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import React from 'react';
 import Button from '../commons/Button';
 import Text from '../commons/Text';
@@ -28,8 +29,8 @@ export default function FormContact() {
     });
   }
 
-  const isFormInvalid = userInfo.user.length === 0 || userInfo.name.length === 0;
-
+  const isFormInvalid =
+    userInfo.user.length === 0 || userInfo.name.length === 0;
   return (
     <form
       onSubmit={(event) => {
@@ -68,9 +69,7 @@ export default function FormContact() {
             console.error(error);
           });
       }}
-
     >
-
       <Text
         type="subTitle"
         tag="h2"
@@ -84,11 +83,9 @@ export default function FormContact() {
         tag="p"
         color="secondary"
         margin="16px 0px 0px 0px"
-
       >
-        Lorem Ipsum is simply dummy
-        text of the printing
-        and typesetting industry
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry
       </Text>
 
       <div>
@@ -111,12 +108,7 @@ export default function FormContact() {
         />
       </div>
 
-      <Button
-        variant="ghost"
-        type="submit"
-        disabled={isFormInvalid}
-        fullWidth
-      >
+      <Button variant="ghost" type="submit" disabled={isFormInvalid} fullWidth>
         Send
       </Button>
 
@@ -132,10 +124,7 @@ export default function FormContact() {
       )}
 
       {formSubmited && status === formStates.ERROR && (
-        <Box
-          display="flex"
-          justifyContent="center"
-        >
+        <Box display="flex" justifyContent="center">
           {/* <Lottie
             width="150px"
             height="150px"
@@ -144,7 +133,6 @@ export default function FormContact() {
           {/* https://lottiefiles.com/43920-success-alert-icon */}
         </Box>
       )}
-
     </form>
   );
 }
