@@ -9,9 +9,10 @@ import Footer from '../src/Components/Footer';
 import Eye from '../src/Components/Eye';
 import Modal from '../src/Components/commons/Modal';
 import FormContact from '../src/Components/FormContact';
+import SEO from '../src/Components/commons/SEO';
 
 export default function Home() {
-  const [modal, setModal] = React.useState(false);
+  const [modalContact, setModalContact] = React.useState(false);
 
   return (
     <Box
@@ -21,19 +22,15 @@ export default function Home() {
       flexDirection="column"
       justifyContent="space-between"
     >
+      <SEO headTitle="Home" />
 
       <Menu />
 
-      <Modal
-        modal={modal}
-        setModal={setModal}
-      >
+      <Modal modal={modalContact} setModal={setModalContact}>
         <FormContact />
       </Modal>
 
-      <Grid.Container
-        margin="32px 0px 0px 0px"
-      >
+      <Grid.Container margin="32px 0px 0px 0px">
         <Grid.Row>
           <Grid.Col
             value={{ xs: 12, lg: 5 }}
@@ -44,7 +41,6 @@ export default function Home() {
             flexDirection="column"
             order={{ xs: 2, lg: 1 }}
           >
-
             <Text
               type="title"
               tag="h1"
@@ -73,7 +69,9 @@ export default function Home() {
                 md: '32px 0px 0px 0px',
               }}
             >
-              Hello, my name is João. I’m a developer, designer and illustrator. Always looking for new technologies and languages, even if they are on other universes...
+              Hello, my name is João. I’m a developer, designer and illustrator.
+              Always looking for new technologies and languages, even if they
+              are on other universes...
             </Text>
 
             <Button
@@ -83,11 +81,10 @@ export default function Home() {
                 xs: '32px 0px 0px 0px',
                 lg: '32px auto 0px 0px',
               }}
-              onClick={() => setModal(!modal)}
+              onClick={() => setModalContact(!modalContact)}
             >
               let's talk
             </Button>
-
           </Grid.Col>
           <Grid.Col
             display="flex"
@@ -102,7 +99,6 @@ export default function Home() {
             }}
           >
             <Eye />
-
           </Grid.Col>
         </Grid.Row>
       </Grid.Container>

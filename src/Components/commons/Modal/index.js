@@ -7,10 +7,10 @@ import { breakpointsMedia } from '../../../utils/breakpointsMedia';
 
 const ModalWrapper = styled.div`
   display: flex;
-  flex:1;
+  flex: 1;
   align-items: stretch;
-  flex-direction:column;
-  background: rgba(0,0,0,0.9);
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -45,18 +45,16 @@ const bondJamesBond = keyframes`
 
 const ModalContent = styled(motion.div)`
   background: ${({ theme }) => theme.colors.background.secondary};
-  display:flex;
-  flex:1;
-  flex-direction:column;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: 48px;
- 
+
   ${breakpointsMedia({
     lg: css`
-       max-width:50%;
-      `,
-  })}
-
-/* animation: ${bondJamesBond} 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000); */
+      max-width: 50%;
+    `,
+  })}/* animation: ${bondJamesBond} 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000); */
 `;
 
 const LockScroll = createGlobalStyle`
@@ -75,34 +73,25 @@ export default function Modal({ modal, setModal, children }) {
 
   if (modal) {
     return (
-
-      <ModalWrapper
-        onClick={closeModal}
-        ref={modalRef}
-
-      >
-
+      <ModalWrapper onClick={closeModal} ref={modalRef}>
         {modal && <LockScroll />}
 
         <ModalContent>
-
           <Button
             variant="back"
             onClick={() => setModal()}
             margin="0px auto 16px 0px"
             padding="8px 16px"
           >
-            Back
+            back
           </Button>
 
           {children}
-
         </ModalContent>
       </ModalWrapper>
     );
-  } return (
-    null
-  );
+  }
+  return null;
 }
 
 Modal.propTypes = {
