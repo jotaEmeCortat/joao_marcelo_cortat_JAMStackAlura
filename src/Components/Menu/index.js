@@ -1,7 +1,7 @@
 import React from 'react';
 import { links } from '../commons/Link/links';
 import { MenuWrapper } from './MenuWrapper';
-import { Link } from '../commons/Link';
+import Link from '../commons/Link';
 import Button from '../commons/Button';
 import Modal from '../commons/Modal';
 import FormContact from '../FormContact';

@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../utils/breakpointsMedia';
 import Button from '../commons/Button';
-import { Link } from '../commons/Link';
+import Link from '../commons/Link';
 import { links } from '../commons/Link/links';
 
 export const MenuMobileWrapper = styled.nav`

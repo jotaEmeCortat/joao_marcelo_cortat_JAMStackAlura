@@ -1,12 +1,10 @@
-import React from 'react';
-import Text from '../src/Components/commons/Text';
-import Menu from '../src/Components/Menu';
+import ProjectsScreen from '../src/Components/Screens/ProjectsScreen';
+import websitePageHOC from '../src/Components/wrapper/hoc';
 
-export default function Projects() {
-  return (
-    <>
-      <Menu />
-      <Text>Projects</Text>
-    </>
-  );
-}
+export default websitePageHOC(ProjectsScreen, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Projects',
+    },
+  },
+});

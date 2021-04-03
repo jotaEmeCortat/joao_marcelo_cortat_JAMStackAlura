@@ -3,7 +3,7 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 
 export default function SEO({ headTitle }) {
-  const pageTitleDefault = 'Instalura - Projeto do Alura Bootcamp';
+  const pageTitleDefault = 'jotaEmeCortat';
   const hasHeadTitle = Boolean(headTitle);
   const title = hasHeadTitle
     ? `${headTitle} | ${pageTitleDefault}`

@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable func-names */
 import { breakpointsMedia } from './breakpointsMedia';
 
 export function propToStyle(propName) {

@@ -1,4 +1,3 @@
-/* eslint-disable operator-linebreak */
 import React from 'react';
 import Button from '../commons/Button';
 import Text from '../commons/Text';
@@ -29,8 +28,7 @@ export default function FormContact() {
     });
   }
 
-  const isFormInvalid =
-    userInfo.user.length === 0 || userInfo.name.length === 0;
+  const isFormInvalid = userInfo.user.length === 0 || userInfo.name.length === 0;
   return (
     <form
       onSubmit={(event) => {

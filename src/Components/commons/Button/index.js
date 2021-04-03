@@ -1,5 +1,3 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
@@ -60,9 +58,8 @@ const ButtonWrapper = styled.button`
     opacity: 0.2;
   }
 
-  ${({ fullWidth }) =>
-    fullWidth &&
-    css`
+  ${({ fullWidth }) => fullWidth
+    && css`
       width: 100%;
     `};
 `;

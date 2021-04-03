@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '../../../layout/Box';
-import Menu from '../../Menu';
-import { Grid } from '../../../layout/Grid';
+import Link from '../../commons/Link';
 import Text from '../../commons/Text';
-import Footer from '../../Footer';
+import { Box } from '../../../layout/Box';
+import { Grid } from '../../../layout/Grid';
 
 export default function FAQScreen({ faqCategories }) {
   return (
@@ -13,9 +12,6 @@ export default function FAQScreen({ faqCategories }) {
       flexDirection="column"
       flex="1"
     >
-
-      <Menu />
-
       <Grid.Container style={{ flex: 1 }}>
         <Grid.Row
           marginTop={{ xs: '32px', md: '100px' }}
@@ -27,7 +23,7 @@ export default function FAQScreen({ faqCategories }) {
             flex={1}
           >
             <Text
-              type="subTitle"
+              type="SubTitle"
               tag="h2"
               color="primary"
               textAlign="center"
@@ -52,7 +48,7 @@ export default function FAQScreen({ faqCategories }) {
                   width="100%"
                 >
                   <Text
-                    type="paragraphy"
+                    type="subTitle"
                     tag="h3"
                     color="primary"
                     marginBottom="26px"
@@ -67,14 +63,12 @@ export default function FAQScreen({ faqCategories }) {
                   >
                     {category.questions.map((question) => (
                       <li key={question.title}>
-                        <Text
+                        <Link
                           href={`/faq/${question.slug}`}
-                          type="paragraphy"
-                          tag="p"
                           color="primary"
                         >
                           {question.title}
-                        </Text>
+                        </Link>
                       </li>
                     ))}
                   </Box>
@@ -84,8 +78,6 @@ export default function FAQScreen({ faqCategories }) {
           }
         </Grid.Row>
       </Grid.Container>
-
-      <Footer />
     </Box>
   );
 }

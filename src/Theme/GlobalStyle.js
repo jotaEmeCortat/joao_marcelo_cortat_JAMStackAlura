@@ -7,6 +7,10 @@ export const GlobalStyle = createGlobalStyle`
   }
   ${normalize}
 
+  li {
+    list-style:none;
+  }
+
   h1,h2,h3,p {
     margin: 0;
   }
